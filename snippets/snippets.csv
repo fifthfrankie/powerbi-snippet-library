@@ -1,0 +1,42 @@
+Type,Name,Content,Description
+DAX,Calculate Total Sales,Total Sales = SUM(Sales[Amount]),Calculates the total sales amount from the Sales table.
+DAX,Calculate Average Sales,Average Sales = AVERAGE(Sales[Amount]),Calculates the average sales amount.
+DAX,Count Rows in a Table,Row Count = COUNTROWS(Sales),Counts the number of rows in the Sales table.
+DAX,Calculate Distinct Count,Distinct Customers = DISTINCTCOUNT(Sales[CustomerID]),Counts the number of unique customers.
+DAX,Calculate Year-to-Date Sales,"YTD Sales = TOTALYTD(SUM(Sales[Amount]), 'Date'[Date])",Calculates year-to-date sales using the Date table.
+DAX,Calculate Month-to-Date Sales,"MTD Sales = TOTALMTD(SUM(Sales[Amount]), 'Date'[Date])",Calculates month-to-date sales using the Date table.
+DAX,Calculate Previous Month Sales,"Previous Month Sales = CALCULATE(SUM(Sales[Amount]), PREVIOUSMONTH('Date'[Date]))",Calculates sales for the previous month.
+DAX,Calculate Percentage of Total Sales,"% of Total Sales = DIVIDE(SUM(Sales[Amount]), CALCULATE(SUM(Sales[Amount]), ALL(Sales)))",Calculates the percentage of total sales for each row.
+DAX,Filter Top 10 Products by Sales,"Top 10 Products = TOPN(10, VALUES(Products[ProductName]), SUM(Sales[Amount]), DESC)",Filters the top 10 products by sales amount.
+DAX,Calculate Running Total,"Running Total = CALCULATE(SUM(Sales[Amount]), FILTER(ALL('Date'), 'Date'[Date] <= MAX('Date'[Date])))",Calculates a running total of sales over time.
+DAX,Calculate Moving Average (Last 3 Months),"Moving Average 3 Months = AVERAGEX(DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -3, MONTH), SUM(Sales[Amount]))",Calculates the moving average of sales over the last 3 months.
+DAX,Calculate Growth Rate,"Sales Growth Rate = DIVIDE(SUM(Sales[Amount]) - CALCULATE(SUM(Sales[Amount]), PREVIOUSMONTH('Date'[Date])), CALCULATE(SUM(Sales[Amount]), PREVIOUSMONTH('Date'[Date])))",Calculates the month-over-month growth rate of sales.
+DAX,Calculate Rank by Sales,"Sales Rank = RANKX(ALL(Sales), SUM(Sales[Amount]), , DESC)",Ranks products or customers by sales amount.
+DAX,Calculate Cumulative Sales,"Cumulative Sales = CALCULATE(SUM(Sales[Amount]), FILTER(ALL('Date'), 'Date'[Date] <= MAX('Date'[Date])))",Calculates cumulative sales over time.
+DAX,Calculate Sales per Day,"Sales per Day = DIVIDE(SUM(Sales[Amount]), DISTINCTCOUNT('Date'[Date]))",Calculates the average sales per day.
+DAX,Calculate Profit Margin,"Profit Margin = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]))",Calculates the profit margin as a percentage of sales.
+DAX,Filter Sales Above a Threshold,"High Sales = CALCULATE(SUM(Sales[Amount]), Sales[Amount] > 1000)","Filters sales above a specified threshold (e.g., $1000)."
+DAX,Calculate Sales by Category,"Sales by Category = SUMX(VALUES(Products[Category]), SUM(Sales[Amount]))",Calculates sales grouped by product category.
+DAX,Calculate Sales for Current Year,"Current Year Sales = CALCULATE(SUM(Sales[Amount]), YEAR('Date'[Date]) = YEAR(TODAY()))",Calculates sales for the current year.
+DAX,Calculate Sales for Previous Year,"Previous Year Sales = CALCULATE(SUM(Sales[Amount]), YEAR('Date'[Date]) = YEAR(TODAY()) - 1)",Calculates sales for the previous year.
+Power Query,Remove Duplicate Rows,Table.Distinct(YourTable),Removes duplicate rows from a table.
+Power Query,Filter Rows Based on Condition,"Table.SelectRows(YourTable, each [Sales] > 1000)",Filters rows where sales are greater than 1000.
+Power Query,Add Custom Column,"Table.AddColumn(YourTable, ""Profit"", each [Revenue] - [Cost])",Adds a custom column to calculate profit.
+Power Query,Merge Two Tables,"Table.NestedJoin(Table1, ""KeyColumn"", Table2, ""KeyColumn"", ""NewColumn"", JoinKind.Inner)",Merges two tables based on a key column.
+Power Query,Group Data by Column,"Table.Group(YourTable, ""Category"", {{""Total Sales"", each List.Sum([Sales]), type number}})",Groups data by a column and calculates aggregates.
+Power Query,Replace Values in a Column,"Table.ReplaceValue(YourTable, ""OldValue"", ""NewValue"", Replacer.ReplaceText, {""YourColumn""})",Replaces specific values in a column.
+Power Query,Split Column by Delimiter,"Table.SplitColumn(YourTable, ""FullName"", Splitter.SplitTextByDelimiter("" "", QuoteStyle.Csv), {""FirstName"", ""LastName""})",Splits a column into multiple columns based on a delimiter.
+Power Query,Sort Data by Column,"Table.Sort(YourTable, {{""Sales"", Order.Descending}})",Sorts a table by a column in descending order.
+Power Query,Unpivot Columns,"Table.Unpivot(YourTable, {""Jan"", ""Feb"", ""Mar""}, ""Month"", ""Sales"")","Unpivots columns into rows (e.g., months into a single column)."
+Power Query,Extract Text Before Delimiter,"Table.TransformColumns(YourTable, {{""Email"", each Text.BeforeDelimiter(_, ""@""), type text}})","Extracts text before a specified delimiter (e.g., username from email)."
+Power Query,Remove Columns,"Table.RemoveColumns(YourTable, {""Column1"", ""Column2""})",Removes specified columns from a table.
+Power Query,Rename Columns,"Table.RenameColumns(YourTable, {{""OldName"", ""NewName""}})",Renames columns in a table.
+Power Query,Add Index Column,"Table.AddIndexColumn(YourTable, ""Index"", 1, 1)",Adds an index column to a table.
+Power Query,Replace Errors with Values,"Table.ReplaceErrorValues(YourTable, {{""Column"", 0}})","Replaces errors in a column with a specified value (e.g., 0)."
+Power Query,Filter Rows with Null Values,"Table.SelectRows(YourTable, each [Column] <> null)",Filters rows where a column has non-null values.
+Power Query,Convert Text to Numbers,"Table.TransformColumnTypes(YourTable, {{""Column"", type number}})",Converts a text column to a numeric column.
+Power Query,Extract Year from Date,"Table.TransformColumns(YourTable, {{""Date"", each Date.Year(_), type number}})",Extracts the year from a date column.
+Power Query,Calculate Column Difference,"Table.AddColumn(YourTable, ""Difference"", each [Column1] - [Column2])",Adds a column to calculate the difference between two columns.
+Power Query,Append Two Tables,"Table.Combine({Table1, Table2})",Appends two tables into one.
+Power Query,Filter Rows by Date Range,"Table.SelectRows(YourTable, each [Date] >= #date(2023, 1, 1) and [Date] <= #date(2023, 12, 31))",Filters rows within a specific date range.
+Power Query,Replace Column Values Conditionally,"Table.ReplaceValue(YourTable, each [Column], each if [Column] > 100 then ""High"" else ""Low"", Replacer.ReplaceValue, {""Column""})",Replaces column values based on a condition.
