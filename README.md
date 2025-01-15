@@ -2,6 +2,9 @@
 
 A Streamlit application for managing and injecting Power BI (PBI) snippets into Power BI Template (.PBIT) files.
 
+(https://ibb.co/fXw9w7m)
+
+
 ## Overview
 
 This application allows users to:
