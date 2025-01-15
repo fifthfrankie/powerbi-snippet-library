@@ -77,15 +77,6 @@ streamlit run app.py
 2. It modifies the `DataModelSchema` file to inject the selected snippets.
 3. The modified files are repackaged into a new PBIT file for download.
 
-## Contributing
-
-Contributions are welcome! If you find a bug or have a feature request, please open an issue. For contributions, please fork the repository and create a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Acknowledgments
 
-- Inspired by the need for efficient snippet management in Power BI projects.
 - Built with Streamlit for rapid web application development.
