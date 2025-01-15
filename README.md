@@ -45,8 +45,6 @@ pip install streamlit pandas
 streamlit run app.py
 ```
 
-Replace `app.py` with the actual filename if different.
-
 ## Usage
 
 ### Add a New Snippet
